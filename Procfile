@@ -1,1 +1,1 @@
-worker: python index.py runserver 0.0.0.0:5000
+worker: python index.py
