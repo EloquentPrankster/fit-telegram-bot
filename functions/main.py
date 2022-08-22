@@ -1,4 +1,5 @@
 from aiogram import executor
+from bot import bot
 
 
 def main(disp):
