@@ -1,8 +1,8 @@
-from functions.init_handlers import init_handlers
-from functions.main import main
+from init_handlers import init_handlers
 from bot import disp
-from config import DB_URI
+from aiogram import executor
+
 
 if __name__ == '__main__':
     init_handlers()
-    main(disp)
+    executor.start_polling(disp, skip_updates=True)
