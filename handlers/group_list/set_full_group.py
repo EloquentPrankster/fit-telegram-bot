@@ -4,7 +4,7 @@ from bot import disp
 from handlers.group_list.states.OverwritingList import OverwritingList
 from aiogram.dispatcher import FSMContext
 from db import db_cursor, db
-from utils.get_group_from_db.get_group_db import get_group_db
+from utils.get_group_db import get_group_db
 import re
 
 
