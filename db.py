@@ -1,11 +1,17 @@
+from email import message
+import sys
 import psycopg2
 from psycopg2 import Error
-from config import DB_URI
-from bot import bot
-try:
-    db = psycopg2.connect(DB_URI, sslmode='require')
-except (Exception, Error) as error:
-    bot.send_message("Ошибка при работе с БД")
-    bot.stop_poll()
+from config import *
 
-db_cursor = db.cursor()
+try:
+    db = psycopg2.connect(DB_URI,
+                          sslmode='require',
+                          dbname=DB_NAME,
+                          user=USER,
+                          password=PASSWORD,
+                          host=HOST)
+    db_cursor = db.cursor()
+except (Exception, Error) as error:
+    print("Ошибка при работе с БД")
+    sys.exit(f'{error}')
