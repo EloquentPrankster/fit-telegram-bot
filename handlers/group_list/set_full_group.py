@@ -40,10 +40,12 @@ async def stop_set(message: types.Message, state: FSMContext):
         db.rollback()
         await message.answer('Ошибка обновления таблицы. Проверьте корректность данных. Ну или админ падарас')
         return
+    id = 1
     while i < len(splist):
         try:
             db_cursor.execute(
-                f"Insert into students (fio, subgroup) values (%s,%s)", (splist[i], splist[i+1]))
+                f"Insert into students (id,fio, subgroup) values (%s,%s,%s)", (id, splist[i], splist[i+1]))
+            id += 1
         except (Exception):
             db.rollback()
             await message.answer('Ошибка обновления таблицы. Проверьте корректность данных. Ну или админ падарас')
