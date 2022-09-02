@@ -1,7 +1,7 @@
 import os
 from bot import disp
 from aiogram import types
-from utils.get_shiman_wt_from_db import get_shiman_wt_from_db
+from db_api.get_shiman_wt_from_db import get_shiman_wt_from_db
 
 
 @disp.message_handler(commands=['getshiman'])

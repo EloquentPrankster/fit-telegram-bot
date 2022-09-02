@@ -1,7 +1,7 @@
 from bot import disp
 from aiogram import types
-from utils.get_queue_db import get_queue_db
-from utils.show_queue import show_queue
+from db_api.get_queue_db import get_queue_db
+from db_api.helpers.show_queue import show_queue
 
 
 @disp.message_handler(commands=['getq2'])

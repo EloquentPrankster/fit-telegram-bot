@@ -4,10 +4,10 @@ from aiogram import types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Command
 from handlers.queue.states.Queue import Queue
-from utils.get_group_db import get_group_db
-from utils.get_queue_db import get_queue_db
-from utils.set_queue_db import set_queue_db
-from utils.show_queue import show_queue
+from db_api.get_group_db import get_group_db
+from db_api.get_queue_db import get_queue_db
+from db_api.set_queue_db import set_queue_db
+from db_api.helpers.show_queue import show_queue
 
 
 @disp.message_handler(Command('setq'), state=None)
