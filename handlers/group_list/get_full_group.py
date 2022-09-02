@@ -6,5 +6,5 @@ from utils.show_group import show_group
 
 @disp.message_handler(commands=['getgroup'])
 async def get_full_group(message: types.Message):
-    list = get_group_db()
+    list = await get_group_db()
     await message.answer(show_group(list))

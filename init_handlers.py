@@ -10,3 +10,5 @@ def init_handlers():
     import handlers.group_list.get_sub_2
     # set group
     import handlers.group_list.set_full_group
+    # queue
+    import handlers.queue.set_queue

@@ -6,5 +6,5 @@ from utils.show_group import show_group
 
 @disp.message_handler(commands=['getsub2'])
 async def get_sub_2(message: types.Message):
-    list = get_group_db(2)
+    list =await get_group_db(2)
     await message.answer(show_group(list))
