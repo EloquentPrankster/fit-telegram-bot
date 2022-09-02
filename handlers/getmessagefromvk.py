@@ -1,17 +1,27 @@
 from aiogram import types
 from bot import disp
+from config import VK_TOKEN
 import vk_api
-session = vk_api.VkApi(token='Хуй те а не токен')
-vk = session.get_api()
+from utils.get_poll_link import *
+session = vk_api.VkApi(token=VK_TOKEN)
 
 
 @disp.message_handler(commands=['getmessages'])
-async def peacedeath(message: types.Message):
-    a = session.method('messages.getHistory',
+async def get_messages(message: types.Message):
+    listMes = session.method('messages.getHistory',
                        {
                            'count': 10,
-                           'peer_id': 2000000141
+                           'peer_id': 2000000084
                        })
-
-    for i in a['items']:
-        await message.answer(i)
+    for mes in listMes['items']:
+        attachmentList = mes['attachments']
+        attachmentLink = ''
+        for attachment in attachmentList:
+            match attachment['type']:
+               case 'poll':
+                    attachmentLink = get_poll_link(attachment)
+        respond = attachmentLink
+        try:
+            await message.answer(respond)
+        except Exception: 
+            await message.answer('что-нибудь')

@@ -6,11 +6,7 @@ from config import *
 
 try:
     db = psycopg2.connect(DB_URI,
-                          sslmode='require',
-                          dbname=DB_NAME,
-                          user=USER,
-                          password=PASSWORD,
-                          host=HOST)
+                          sslmode='require')
     db_cursor = db.cursor()
 except (Exception, Error) as error:
     print("Ошибка при работе с БД")
