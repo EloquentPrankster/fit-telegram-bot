@@ -4,13 +4,13 @@ from bot import disp
 from handlers.group_list.states.OverwritingList import OverwritingList
 from aiogram.dispatcher import FSMContext
 from db import db_cursor, db
-from utils.get_group_db import get_group_db
+from db_api.get_group_db import get_group_db
 import re
 
 
 @disp.message_handler(Command('setgroup'), state=None)
 async def start_set(message: types.Message, state: FSMContext):
-    old_list = get_group_db()
+    old_list = await get_group_db()
     await state.update_data(Oldlist=old_list)
     splitlist = ''
     for i in old_list:
