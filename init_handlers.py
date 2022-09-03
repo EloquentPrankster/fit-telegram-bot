@@ -16,5 +16,3 @@ def init_handlers():
     import handlers.queue.set_queue
     import handlers.queue.get_queue_1
     import handlers.queue.get_queue_2
-    # vk
-    import handlers.getmessagefromvk
