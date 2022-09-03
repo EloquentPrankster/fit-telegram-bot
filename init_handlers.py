@@ -1,6 +1,8 @@
 def init_handlers():
     # start
     import handlers.start.start
+    # cancel
+    import handlers.cancel.cancel
     # shiman worktime
     import handlers.shiman_worktime.get_worktime
     import handlers.shiman_worktime.set_worktime
