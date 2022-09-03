@@ -4,7 +4,8 @@ from bot import disp
 from handlers.shiman_worktime.states.ShimanWorktime import ShimanWorktime
 from aiogram.dispatcher import FSMContext
 from db import db_cursor, db
-from db_api.get_shiman_wt_from_db import get_shiman_wt_from_db
+from db_api.get_shiman_wt_db import get_shiman_wt_from_db
+from db_api.set_shiman_wt_db import set_shiman_wt_db
 
 
 @disp.message_handler(Command('setshiman'), state=None)
@@ -19,8 +20,6 @@ async def start_set(message: types.Message):
 async def stop_set(message: types.Message, state: FSMContext):
     new_wt = message.text
     old_wt = get_shiman_wt_from_db()
-    db_cursor.execute(
-        f"UPDATE shiman SET worktime='{new_wt}' WHERE worktime='{old_wt}'")
-    db.commit()
-    await message.answer('Расписание установлено')
+    result = set_shiman_wt_db(old_wt, new_wt)
+    await message.answer('Расписание установлено' if result else 'Ошибка обновления')
     await state.finish()

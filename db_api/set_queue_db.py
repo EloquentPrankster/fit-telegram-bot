@@ -1,4 +1,3 @@
-from email import message
 from db import db_cursor, db
 from db_api.helpers.extract_fio_group import extract_fio_group
 
