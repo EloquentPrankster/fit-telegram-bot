@@ -2,8 +2,8 @@ from aiogram import types
 from bot import disp
 from config import VK_TOKEN
 import vk_api
-from utils.get_poll_link import *
-from utils.get_photo_link import *
+from vk_api.get_poll_link import *
+from vk_api.get_photo_link import *
 from bot import * 
 
 session = vk_api.VkApi(token=VK_TOKEN)
