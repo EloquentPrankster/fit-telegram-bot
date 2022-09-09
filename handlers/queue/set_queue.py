@@ -7,7 +7,7 @@ from handlers.queue.states.Queue import Queue
 from db_api.get_group_db import get_group_db
 from db_api.get_queue_db import get_queue_db
 from db_api.set_queue_db import set_queue_db
-from db_api.helpers.show_queue import show_queue
+from handlers.queue.helpers.show_queue import show_queue
 from handlers.rights.helpers.check_acc import has_access
 
 
