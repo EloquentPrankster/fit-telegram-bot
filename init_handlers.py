@@ -19,3 +19,4 @@ def init_handlers():
     # rights
     import handlers.rights.get_access
     import handlers.rights.set_access 
+    import handlers.rights.rem_access
