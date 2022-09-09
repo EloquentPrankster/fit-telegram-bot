@@ -1,6 +1,5 @@
-from email import message
 from db import db_cursor, db
-from db_api.helpers.extract_fio_group import extract_fio_group
+from handlers.queue.helpers.extract_fio_group import extract_fio_group
 
 
 def set_queue_db(subgroup: int, list_of_students: list[tuple], rrange: list[int]) -> bool:

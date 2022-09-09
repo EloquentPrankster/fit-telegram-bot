@@ -16,5 +16,7 @@ def init_handlers():
     import handlers.queue.set_queue
     import handlers.queue.get_queue_1
     import handlers.queue.get_queue_2
-    # vk
-    import handlers.getmessagefromvk
+    # rights
+    import handlers.rights.get_access
+    import handlers.rights.set_access 
+    import handlers.rights.rem_access

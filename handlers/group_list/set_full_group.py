@@ -7,9 +7,12 @@ from db import db_cursor, db
 from db_api.get_group_db import get_group_db
 import re
 
+from handlers.rights.helpers.check_acc import has_access
+
 
 @disp.message_handler(Command('setgroup'), state=None)
 async def start_set(message: types.Message, state: FSMContext):
+    if not has_access(message.from_user.username): return await message.answer("У вас нет прав на эту команду")
     old_list = await get_group_db()
     await state.update_data(Oldlist=old_list)
     splitlist = ''

@@ -1,7 +1,7 @@
 from bot import disp
 from aiogram import types
 from db_api.get_group_db import get_group_db
-from db_api.helpers.show_group import show_group
+from handlers.group_list.helpers.show_group import show_group
 
 
 @disp.message_handler(commands=['getgroup'])

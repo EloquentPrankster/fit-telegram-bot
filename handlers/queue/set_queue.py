@@ -7,11 +7,13 @@ from handlers.queue.states.Queue import Queue
 from db_api.get_group_db import get_group_db
 from db_api.get_queue_db import get_queue_db
 from db_api.set_queue_db import set_queue_db
-from db_api.helpers.show_queue import show_queue
+from handlers.queue.helpers.show_queue import show_queue
+from handlers.rights.helpers.check_acc import has_access
 
 
 @disp.message_handler(Command('setq'), state=None)
 async def start_set(message: types.Message, state: FSMContext):
+    if not has_access(message.from_user.username): return await message.answer("У вас нет прав на эту команду")
     await message.answer('На какую подгруппу сгенерировать очередь? (1|2)')
     await Queue.Q1.set()
 
