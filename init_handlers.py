@@ -18,3 +18,4 @@ def init_handlers():
     import handlers.queue.get_queue_2
     # rights
     import handlers.rights.get_access
+    import handlers.rights.set_access 

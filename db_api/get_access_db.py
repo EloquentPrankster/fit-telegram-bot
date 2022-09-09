@@ -1,4 +1,4 @@
-from db import db, db_cursor
+from db import db_cursor
 
 def get_access_db()->list:
     """Get list of users with access to all commands"""
