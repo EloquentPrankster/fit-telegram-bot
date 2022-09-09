@@ -4,3 +4,4 @@ psycopg2==2.9.3
 vk_api==11.9.9
 datetime==4.5
 asyncio==3.4.3
+aioschedule==0.5.2
