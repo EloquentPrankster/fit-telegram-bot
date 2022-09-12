@@ -30,8 +30,7 @@ async def stop_set(message: types.Message, state: FSMContext):
     for i in new_list:
         x = re.match(r'.* .* .*-[1|2]$', i)
         if x is None:
-            await message.answer('Каждая строка должна соответствовать шаблону ".* .* .*-[1|2]$".\n Скопируйте и вставьте список снова.')
-            return
+            return await message.answer('Каждая строка должна соответствовать шаблону "Ф И О-1|2".\n Скопируйте и вставьте список снова.')
         i = i.split('-')
         splist.append(i[0])
         splist.append(i[1])

@@ -20,3 +20,6 @@ def init_handlers():
     import handlers.rights.get_access
     import handlers.rights.set_access 
     import handlers.rights.rem_access
+    # reminder
+    import handlers.reminder.get_reminder
+    import handlers.reminder.set_reminder
