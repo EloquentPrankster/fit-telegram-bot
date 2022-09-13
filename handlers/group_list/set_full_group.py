@@ -4,7 +4,7 @@ from bot import disp
 from handlers.group_list.states.OverwritingList import OverwritingList
 from aiogram.dispatcher import FSMContext
 from db import db_cursor, db
-from db_api.get_group_db import get_group_db
+from db_api.get.get_group_db import get_group_db
 import re
 
 from handlers.rights.helpers.check_acc import has_access
@@ -30,8 +30,7 @@ async def stop_set(message: types.Message, state: FSMContext):
     for i in new_list:
         x = re.match(r'.* .* .*-[1|2]$', i)
         if x is None:
-            await message.answer('Каждая строка должна соответствовать шаблону ".* .* .*-[1|2]$".\n Скопируйте и вставьте список снова.')
-            return
+            return await message.answer('Каждая строка должна соответствовать шаблону "Ф И О-1|2".\n Скопируйте и вставьте список снова.')
         i = i.split('-')
         splist.append(i[0])
         splist.append(i[1])

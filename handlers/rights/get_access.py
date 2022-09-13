@@ -1,7 +1,7 @@
 from bot import disp
 from aiogram import types
 
-from db_api.get_access_db import get_access_db
+from db_api.get.get_access_db import get_access_db
 
 @disp.message_handler(commands=['getacc'])
 async def get_access(message: types.Message):
