@@ -4,8 +4,8 @@ from bot import disp
 from handlers.rights.helpers.check_acc import has_access
 from handlers.shiman_worktime.states.ShimanWorktime import ShimanWorktime
 from aiogram.dispatcher import FSMContext
-from db_api.get_shiman_wt_db import get_shiman_wt_from_db
-from db_api.set_shiman_wt_db import set_shiman_wt_db
+from db_api.get.get_shiman_wt_db import get_shiman_wt_from_db
+from db_api.set.set_shiman_wt_db import set_shiman_wt_db
 
 
 @disp.message_handler(Command('setshiman'), state=None)

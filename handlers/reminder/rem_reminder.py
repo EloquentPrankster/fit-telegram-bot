@@ -2,10 +2,10 @@ import re
 from aiogram import types
 from aiogram.dispatcher.filters import Command
 from bot import disp
-from db_api.rem_reminder_db import rem_reminder_db
+from db_api.rem.rem_reminder_db import rem_reminder_db
 from handlers.reminder.states.Reminder import Reminder
 from handlers.rights.helpers.check_acc import has_access
-from db_api.get_reminder_db import get_reminders_db
+from db_api.get.get_reminder_db import get_reminders_db
 from handlers.reminder.helpers.show_reminders import show_reminders
 from aiogram.dispatcher import FSMContext
 

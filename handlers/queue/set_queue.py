@@ -4,9 +4,9 @@ from aiogram import types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Command
 from handlers.queue.states.Queue import Queue
-from db_api.get_group_db import get_group_db
-from db_api.get_queue_db import get_queue_db
-from db_api.set_queue_db import set_queue_db
+from db_api.get.get_group_db import get_group_db
+from db_api.get.get_queue_db import get_queue_db
+from db_api.set.set_queue_db import set_queue_db
 from handlers.queue.helpers.show_queue import show_queue
 from handlers.rights.helpers.check_acc import has_access
 

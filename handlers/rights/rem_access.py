@@ -1,8 +1,8 @@
 from bot import disp
 from aiogram import types
 
-from db_api.get_access_db import get_access_db
-from db_api.rem_access_db import rem_access_db
+from db_api.get.get_access_db import get_access_db
+from db_api.rem.rem_access_db import rem_access_db
 from handlers.rights.helpers.check_acc import has_access
 
 @disp.message_handler(commands=['remacc'])
