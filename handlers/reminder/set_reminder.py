@@ -11,7 +11,7 @@ from aiogram.dispatcher import FSMContext
 @disp.message_handler(Command('setmind'), state=None)
 async def set_mind(message: types.Message):
     if not has_access(message.from_user.username): return await message.answer("У вас нет прав на эту команду")
-    await message.answer('Введите напоминание по шаблону \n"DD.MM.YYYY**Текст(не болee 400 символов)"')
+    await message.answer('Введите напоминание по шаблону \n"DD.MM.YYYY Текст (не болee 400 символов)"')
     await Reminder.Q1.set()
 
 
@@ -20,7 +20,7 @@ async def set_mind(message: types.Message):
 async def stop_set_mind(message: types.Message, state: FSMContext):
     message_text =message.text
     if check_reminder_regex(message_text) is None: return await message.answer('Строка должна соответствовать шаблону')
-    arr=message_text.split('**')
+    arr=message_text.split(' ', maxsplit=1)
     date, text=arr[0],arr[1]
     try:
         check_date(date)
