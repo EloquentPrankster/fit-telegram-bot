@@ -1,6 +1,6 @@
 from bot import disp
 from aiogram import types
-from db_api.get_queue_db import get_queue_db
+from db_api.get.get_queue_db import get_queue_db
 from handlers.queue.helpers.show_queue import show_queue
 
 
