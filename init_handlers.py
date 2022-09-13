@@ -24,3 +24,6 @@ def init_handlers():
     import handlers.reminder.get_reminder
     import handlers.reminder.set_reminder
     import handlers.reminder.rem_reminder
+    # timetable
+    import handlers.timetable.get_timetable 
+    import handlers.timetable.set_timetable
