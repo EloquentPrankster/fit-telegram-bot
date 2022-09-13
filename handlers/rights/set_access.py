@@ -9,7 +9,7 @@ from handlers.rights.helpers.check_acc import has_access
 async def set_access(message: types.Message):
     if not has_access(message.from_user.username): return await message.answer("У вас нет прав на эту команду")
     users_from_db = get_access_db()
-    if len(users_from_db) == 0: set_access_db('wlangust') #Change to your
+    if len(users_from_db) == 0: set_access_db('wlangust') #Change to yours
     usernames = message.text.replace(' ','').split('@')[1:]
     if len(usernames) ==0: return await message.answer("Укажите пользователей через @")
     for i in usernames:

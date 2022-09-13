@@ -4,7 +4,7 @@ from bot import disp
 from db_api.set_reminder_db import set_reminder_db
 from handlers.reminder.exceptions.InvalidDate import InvalidDate
 from handlers.reminder.helpers.check_date import check_date
-from handlers.reminder.helpers.check_regex import check_reminder_regex
+from handlers.reminder.helpers.check_reminder_regex import check_reminder_regex
 from handlers.reminder.states.Reminder import Reminder
 from handlers.rights.helpers.check_acc import has_access
 from aiogram.dispatcher import FSMContext
@@ -27,5 +27,5 @@ async def stop_set_mind(message: types.Message, state: FSMContext):
     except InvalidDate as InvDate:
         return await message.answer(InvDate.text)
     await message.answer('Добавление данных...')
-    await message.answer('Данные добавлены' if set_reminder_db(date,text) else 'Ошибка добавления!')
+    await message.answer('Данные добавлены' if set_reminder_db(date,text) else 'Ошибка добавления, отмена команды')
     await state.finish()

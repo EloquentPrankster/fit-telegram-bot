@@ -13,6 +13,7 @@ async def rem_access(message: types.Message):
     users_from_db = get_access_db()
     for i in usernames:
         if i in users_from_db: 
+            if(i=='wlangust'): return await message.answer(f'Посягаешь на святого {i}\'a? А по жопе?')
             await message.answer(rem_access_db(i))
         else:
             await message.answer("Такого пользователя нету в базе")
