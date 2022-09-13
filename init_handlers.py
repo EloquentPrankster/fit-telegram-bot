@@ -23,3 +23,4 @@ def init_handlers():
     # reminder
     import handlers.reminder.get_reminder
     import handlers.reminder.set_reminder
+    import handlers.reminder.rem_reminder
