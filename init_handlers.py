@@ -27,3 +27,5 @@ def init_handlers():
     # timetable
     import handlers.timetable.get_timetable 
     import handlers.timetable.set_timetable
+    # help
+    import handlers.help.help
