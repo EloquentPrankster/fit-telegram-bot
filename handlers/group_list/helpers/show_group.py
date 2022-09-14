@@ -1,5 +1,8 @@
+from config import GROUP
+
+
 def show_group(list: list[tuple]):
-    splitlist = 'Список студентов ИСИТ 3-1:\n'
+    splitlist = f'Список студентов {GROUP}:\n'
     splitlist += '№-ФИО-Подгруппа\n'
     num = 1
     for student in list:
