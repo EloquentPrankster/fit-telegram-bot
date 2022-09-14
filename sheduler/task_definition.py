@@ -1,8 +1,6 @@
-from bot import bot
 import aioschedule as shed
+from handlers.reminder.helpers.notifier import notifier
 
 def task_definition():
-    # shed.every(5).seconds.do()
-    # shed.every(3).seconds.do()
-    pass
+    shed.every().day.at('6:30').do(notifier)
     
