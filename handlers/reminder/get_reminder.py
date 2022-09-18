@@ -6,4 +6,5 @@ from handlers.reminder.helpers.show_reminders import show_reminders
 @disp.message_handler(commands=['getmind'])
 async def get_reminder(message: types.Message):
     reminders= get_reminders_db()
+    if len(reminders)==0: return await message.answer('Список напоминаний пуст')
     await message.answer(show_reminders(reminders))
