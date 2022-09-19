@@ -1,5 +1,4 @@
 import os
-from unittest.mock import DEFAULT
 from dotenv import load_dotenv
 load_dotenv('./env/.env')
 API_TOKEN = os.getenv('API_TOKEN')
