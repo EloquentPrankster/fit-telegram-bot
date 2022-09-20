@@ -1,11 +1,12 @@
 class Dictionary:
     def __init__(self,dictionary:dict):
         self.dictionary=dictionary
-    def pop(self,param:str):
+    def pop(self,params:list[str]):
         try:
-            self.dictionary.pop(param)
+            for i in params:
+                self.dictionary.pop(i)
         except Exception:
-            print(f'Нет такого свойства {param}')
+            print(f'Нет такого свойства {i}')
         return self
     def getdict(self):
         return self.dictionary
