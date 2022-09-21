@@ -29,5 +29,5 @@ def init_handlers():
     import handlers.timetable.set_timetable
     # help
     import handlers.help.help
-    # temp_getmesvk
+    # getmesvk
     import handlers.getmesvk.getmesvk
