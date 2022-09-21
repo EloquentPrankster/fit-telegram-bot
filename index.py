@@ -28,6 +28,7 @@ async def on_startup(_):
             types.BotCommand("setshiman", "Переписать расписание деканата"),
             types.BotCommand("gett", "Расписание занятий"),
             types.BotCommand("sett", "Установить ссылку на расписание"),
+            types.BotCommand("getmesvk", "Получить сообщения из ВК"),
         ]
     )
     asyncio.create_task(sheduler())
