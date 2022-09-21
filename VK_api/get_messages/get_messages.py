@@ -6,6 +6,7 @@ def get_messages()->list[dict]:
     unreaded_dialogs = vk.method('messages.getDialogs',{'unread':1})['items']
     count=0
     for i in unreaded_dialogs:
+<<<<<<< HEAD
         if(i['message'].get('chat_id')==int(VK_PEER_ID)-2000000000):
             count=i['unread']
             unread_messages = vk.method('messages.getHistory',{'count':count,'peer_id':int(VK_PEER_ID),})['items']
