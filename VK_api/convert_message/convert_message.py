@@ -1,5 +1,4 @@
 from VK_api.core.core import vk
-from VK_api.get_messages.get_messages import get_messages
 from VK_api.convert_message.get_link import *
 
 def convert_message(mes) -> str:
