@@ -3,17 +3,17 @@ from bot import disp
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Command
+from config import DEFAULT_ADMIN
 from handlers.queue.states.Queue import Queue
 from db_api.get.get_group_db import get_group_db
 from db_api.get.get_queue_db import get_queue_db
 from db_api.set.set_queue_db import set_queue_db
 from handlers.queue.helpers.show_queue import show_queue
-from handlers.rights.helpers.check_acc import has_access
 
 
 @disp.message_handler(Command('setq'), state=None)
 async def start_set(message: types.Message, state: FSMContext):
-    if not has_access(message.from_user.username): return await message.answer("У вас нет прав на эту команду")
+    if message.from_user.username!=DEFAULT_ADMIN: return await message.answer(f"Эту команду может использовать только {DEFAULT_ADMIN}")
     await message.answer('На какую подгруппу сгенерировать очередь? (1|2)')
     await Queue.Q1.set()
 
