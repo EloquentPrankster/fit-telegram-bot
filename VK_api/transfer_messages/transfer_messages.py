@@ -6,7 +6,7 @@ from VK_api.convert_message.convert_message import convert_message
 async def transfer_messages(listMes):
     try:
         for mes in listMes:
-            respond = convert_message(mes)
+            respond = convert_message(mes, 1)
 
             try:
                 await bot.send_message(CHAT_TO_NOTIFY, respond)
