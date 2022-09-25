@@ -1,9 +1,8 @@
-from VK_api.core.core import vk
 from VK_api.convert_message.get_link import *
+from VK_api.convert_message.get_fio import get_fio
 
 def convert_message(mes, numi) -> str:
-    user = vk.method('users.get',{'user_ids': mes['from_id']})
-    userFio = user[-1]['first_name'] + ' ' + user[-1]['last_name']
+    userFio = get_fio(mes['from_id'])
 
     respond = userFio
 
@@ -13,9 +12,8 @@ def convert_message(mes, numi) -> str:
         respond += '\n"' + mes['text'] + '"'
     
     if 'reply_message' in mes:
-        replyUser = vk.method('users.get',{'user_ids': mes['reply_message']['from_id']})
-        replyFio = replyUser[-1]['first_name'] + ' ' + user[-1]['last_name']
-        respond += '\n' + 'Ответ на сообщение -> ' + str(replyFio)
+        replyFio = get_fio(mes['reply_message']['from_id'])
+        respond += '\n' + 'Ответ на сообщение -> ' + replyFio
         if mes['reply_message']['text'] != '':
             respond += ':\n"' + mes['reply_message']['text'] + '"'
     
@@ -42,6 +40,9 @@ def convert_message(mes, numi) -> str:
                 audioTitle = get_audio_title(attachment)
                 audioLink = get_audio_link(attachment)
                 respond += '\n' + str(i) + '. Аудио: ' + audioTitle + '\n' + audioLink
+            case "audio_message":
+                audioMesLink = get_audio_message_link(attachment)
+                respond += '\n' + str(i) + '. Голосовое сообщение:\n' + audioMesLink
             case "audio":
                 audioTitle = get_audio_title(attachment)
                 audioLink = get_audio_link(attachment)

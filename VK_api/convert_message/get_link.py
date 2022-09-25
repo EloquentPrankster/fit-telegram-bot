@@ -26,6 +26,10 @@ def get_audio_link(attachment) -> str:
     audioLink = str(attachment['audio']['url'])
     return audioLink
 
+def get_audio_message_link(attachment) -> str:
+    audioMesLink = str(attachment['audio_message']['link_mp3'])
+    return audioMesLink
+
 def get_wall_link(attachment) -> str:
     wallLink = 'https://vk.com/wall' + str(attachment['wall']['from_id']) + '_' + str(attachment['wall']['id'])
     return wallLink
