@@ -20,7 +20,7 @@ def convert_message(mes) -> str:
                 pollLink = get_poll_link(attachment)
                 respond += '\n' + str(i) + '. Опрос: \n' + pollLink
             case "doc":
-                documentLink = get_document_link()
+                documentLink = get_document_link(attachment)
                 respond += '\n' + str(i) + '. Документ: \n' + documentLink
             case "video":
                 videoTitle = get_video_title(attachment)
