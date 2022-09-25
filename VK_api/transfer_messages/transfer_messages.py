@@ -12,5 +12,5 @@ async def transfer_messages(listMes):
                 await bot.send_message(CHAT_TO_NOTIFY, respond)
             except Exception: 
                 await bot.send_message(CHAT_TO_NOTIFY, 'Траблы. Пиши админу.')
-    except Exception:
-        pass
+    except Exception as ex:
+        print(ex)

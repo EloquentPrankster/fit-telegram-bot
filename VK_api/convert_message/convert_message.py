@@ -10,10 +10,17 @@ def convert_message(mes, numi) -> str:
     print(mes)
 
     if mes['text'] != '':
-        respond += '\n' + mes['text']
+        respond += '\n"' + mes['text'] + '"'
     else: 
-        respond += '\n' + "*текста нет"
-
+        respond += '\n*текста нет'
+    
+    if 'reply_message' in mes:
+        replyUser = vk.method('users.get',{'user_ids': mes['reply_message']['from_id']})
+        replyFio = replyUser[-1]['first_name'] + ' ' + user[-1]['last_name']
+        respond += '\n' + 'Ответ на сообщение -> ' + str(replyFio)
+        if mes['reply_message']['text'] != '':
+            respond += ':\n"' + mes['reply_message']['text'] + '"'
+    
     i = 1
     for attachment in mes['attachments']:
         match attachment['type']:
