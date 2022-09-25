@@ -6,8 +6,6 @@ def convert_message(mes, numi) -> str:
 
     respond = userFio
 
-    print(mes)
-
     if mes['text'] != '':
         respond += '\n"' + mes['text'] + '"'
     
