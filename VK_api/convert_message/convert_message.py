@@ -11,8 +11,6 @@ def convert_message(mes, numi) -> str:
 
     if mes['text'] != '':
         respond += '\n"' + mes['text'] + '"'
-    else: 
-        respond += '\n*текста нет'
     
     if 'reply_message' in mes:
         replyUser = vk.method('users.get',{'user_ids': mes['reply_message']['from_id']})
