@@ -1,5 +1,5 @@
 import asyncio
-from init_handlers import init_handlers
+from handlers.core.init_handlers import init_handlers
 from bot import disp
 from aiogram import executor
 from db_api.core.db import *
