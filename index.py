@@ -2,7 +2,7 @@ import asyncio
 from init_handlers import init_handlers
 from bot import disp
 from aiogram import executor
-from db import *
+from db_api.core.db import *
 from sheduler.core.core import sheduler
 from aiogram import types
 async def on_startup(_):

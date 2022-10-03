@@ -1,4 +1,4 @@
-from db import db_cursor, db
+from db_api.core.db import db_cursor, db
 from handlers.queue.helpers.extract_fio_group import extract_fio_group
 
 

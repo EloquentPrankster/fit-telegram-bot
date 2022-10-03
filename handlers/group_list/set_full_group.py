@@ -3,7 +3,7 @@ from aiogram.dispatcher.filters import Command
 from bot import disp
 from handlers.group_list.states.OverwritingList import OverwritingList
 from aiogram.dispatcher import FSMContext
-from db import db_cursor, db
+from db_api.core.db import db_cursor, db
 from db_api.get.get_group_db import get_group_db
 import re
 

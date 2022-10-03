@@ -1,4 +1,4 @@
-from db import db_cursor
+from db_api.core.db import db_cursor
 
 
 async def get_queue_db(subgroup: int):  # 0 = full group

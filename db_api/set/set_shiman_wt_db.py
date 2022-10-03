@@ -1,4 +1,4 @@
-from db import db, db_cursor
+from db_api.core.db import db, db_cursor
 
 
 def set_shiman_wt_db(old_wt: str, new_wt: str) -> bool:
