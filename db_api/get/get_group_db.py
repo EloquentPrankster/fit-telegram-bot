@@ -1,4 +1,4 @@
-from db import db_cursor
+from db_api.core.db import db_cursor
 
 
 async def get_group_db(subgroup=0) -> list[tuple]:  # 0 = full group

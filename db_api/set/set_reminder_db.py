@@ -1,4 +1,4 @@
-from db import db_cursor, db
+from db_api.core.db import db_cursor, db
 
 def set_reminder_db(date:str, text:str)->bool:
     """

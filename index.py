@@ -1,8 +1,8 @@
 import asyncio
-from init_handlers import init_handlers
+from handlers.core.init_handlers import init_handlers
 from bot import disp
 from aiogram import executor
-from db import *
+from db_api.core.db import *
 from sheduler.core.core import sheduler
 from aiogram import types
 async def on_startup(_):
@@ -28,6 +28,7 @@ async def on_startup(_):
             types.BotCommand("setshiman", "Переписать расписание деканата"),
             types.BotCommand("gett", "Расписание занятий"),
             types.BotCommand("sett", "Установить ссылку на расписание"),
+            types.BotCommand("getmesvk", "Получить сообщения из ВК"),
         ]
     )
     asyncio.create_task(sheduler())

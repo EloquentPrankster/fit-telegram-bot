@@ -1,4 +1,4 @@
-from db import db_cursor, db
+from db_api.core.db import db_cursor, db
 
 def set_access_db(name:str):
     """Returns string with success or fault"""

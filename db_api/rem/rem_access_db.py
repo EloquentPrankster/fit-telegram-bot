@@ -1,4 +1,4 @@
-from db import db, db_cursor
+from db_api.core.db import db, db_cursor
 
 def rem_access_db(name:str):
     """Returns string with success or fault"""

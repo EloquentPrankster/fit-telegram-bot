@@ -1,4 +1,4 @@
-from db import db_cursor, db
+from db_api.core.db import db_cursor, db
 
 def set_timetable_db(url:str)->bool:
     """
