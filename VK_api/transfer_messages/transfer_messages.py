@@ -16,25 +16,25 @@ async def transfer_messages(handled_messages:list[dict]):
             match(attachment['type']):
                 case 'photo':
                     await bot.send_chat_action(NEWS_CHAT, types.ChatActions.UPLOAD_PHOTO)
-                    await bot.send_photo(NEWS_CHAT, attachment['url'], caption=decorator*message['level']+'Фото от: '+ message['sender'])
+                    await bot.send_photo(NEWS_CHAT, attachment['url'], caption=decorator*message['level']+'Фото от: '+ message['sender'], parse_mode='HTML')
                 case 'doc':
                     await bot.send_chat_action(NEWS_CHAT, types.ChatActions.UPLOAD_DOCUMENT)
                     r=http.request('GET',attachment['url']).data
-                    await bot.send_document(NEWS_CHAT,(attachment['title'],r), caption=decorator*message['level']+'Документ от: '+ message['sender']) 
+                    await bot.send_document(NEWS_CHAT,(attachment['title'],r), caption=decorator*message['level']+'Документ от: '+ message['sender'], parse_mode='HTML') 
                     
                 case 'video':
                     await bot.send_chat_action(NEWS_CHAT, types.ChatActions.UPLOAD_VIDEO)
-                    if attachment['by_direct']: await bot.send_video(NEWS_CHAT,attachment['url'], caption=decorator*message['level']+'Видео от: '+ message['sender'])
+                    if attachment['by_direct']: await bot.send_video(NEWS_CHAT,attachment['url'], caption=decorator*message['level']+'Видео от: '+ message['sender'], parse_mode='HTML')
                     else : await bot.send_message(NEWS_CHAT,text=decorator*message['level']+'<a href="'+attachment['url']+'">Видео</a> от: '+message['sender']+'\n',parse_mode='HTML')
                     
                 case 'audio_message':
                     await bot.send_chat_action(NEWS_CHAT, types.ChatActions.UPLOAD_VOICE)
-                    await bot.send_voice(NEWS_CHAT, attachment['link_ogg'],caption=decorator*message['level']+'Голосовое сообщение от: '+ message['sender'])  
+                    await bot.send_voice(NEWS_CHAT, attachment['link_ogg'],caption=decorator*message['level']+'Голосовое сообщение от: '+ message['sender'], parse_mode='HTML')  
                     
                 case "audio":
                     await bot.send_chat_action(NEWS_CHAT, types.ChatActions.UPLOAD_AUDIO)
                     r=http.request('GET',attachment['url']).data
-                    await bot.send_audio(NEWS_CHAT,r,performer=attachment['artist'],title=attachment['title'], duration=attachment['duration'],caption=decorator*message['level']+'Аудио от: '+ message['sender'])
+                    await bot.send_audio(NEWS_CHAT,r,performer=attachment['artist'],title=attachment['title'], duration=attachment['duration'],caption=decorator*message['level']+'Аудио от: '+ message['sender'], parse_mode='HTML')
 
                 case "poll":
                     await bot.send_chat_action(NEWS_CHAT,types.ChatActions.TYPING) 
