@@ -4,7 +4,7 @@ import urllib3
 from config import NEWS_CHAT
 async def transfer_messages(handled_messages:list[dict]):
     http=urllib3.PoolManager()
-    decorator='<strong>^</strong>'
+    decorator='<strong>></strong>'
     for message in handled_messages:
         if 'reply_to' in message or message['text']!='': 
             await bot.send_chat_action(NEWS_CHAT,types.ChatActions.TYPING)
