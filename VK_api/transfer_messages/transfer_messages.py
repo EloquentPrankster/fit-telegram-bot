@@ -16,7 +16,8 @@ async def transfer_messages(handled_messages:list[dict]):
             match(attachment['type']):
                 case 'photo':
                     await bot.send_chat_action(NEWS_CHAT, types.ChatActions.UPLOAD_PHOTO)
-                    await bot.send_photo(NEWS_CHAT, attachment['url'], caption=decorator*message['level']+'Фото от: '+ message['sender'], parse_mode='HTML')
+                    r=http.request('GET',attachment['url']).data
+                    await bot.send_document(NEWS_CHAT, attachment['url'], caption=decorator*message['level']+'Фото от: '+ message['sender'], parse_mode='HTML')
                 case 'doc':
                     await bot.send_chat_action(NEWS_CHAT, types.ChatActions.UPLOAD_DOCUMENT)
                     r=http.request('GET',attachment['url']).data
