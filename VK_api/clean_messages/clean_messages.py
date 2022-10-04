@@ -15,7 +15,13 @@ def clean_messages(raw_messages:list[dict], handled_messages:list=[],level=0)->l
 
         if 'reply_message' in item:
             user = vk.method('users.get',{'user_ids': item['reply_message']['from_id']})
-            item.update({'reply_to':user[-1]['first_name'] + ' ' + user[-1]['last_name']})
+            reply_to=item['reply_message']['text'] if 'text' in item['reply_message'] else ''
+            item.update(
+                {
+                    'reply_to':user[-1]['first_name'] + ' ' + user[-1]['last_name'],
+                    'reply_text': reply_to
+                }
+            )
 
         attachments=[]
         for attach in item['attachments']:

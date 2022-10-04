@@ -1,5 +1,6 @@
 class Dictionary:
     def __init__(self,dictionary:dict):
+        """Modification of the base class dict."""
         self.dictionary:dict=dictionary
     def pop(self,params:list[str]):
         for i in params:
