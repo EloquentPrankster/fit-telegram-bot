@@ -58,19 +58,24 @@ def clean_messages(raw_messages:list[dict], handled_messages:list=[],level=0)->l
                     attachments.append(wall)
 
                 case "video":
-                    if 'mp4_720' in attach['video']['files']: quality='mp4_720'
-                    elif 'mp4_480' in attach['video']['files']: quality='mp4_480'
-                    elif 'mp4_240' in attach['video']['files']: quality='mp4_240'
-                    elif 'mp4_144' in attach['video']['files']: quality='mp4_144'
-
-                    if re.match(r'.*\.mp4.*',attach['video']['files'][quality]): 
-                        url=attach['video']['files'][quality]
-                        attach['video'].update({'by_direct':True})
-                    else: 
-                        owner_id=str(attach['video']['owner_id'])
-                        video_id=str(attach['video']['id'])
+                    if 'external' in attach['video']['files']:
+                        url=attach['video']['files']['external']
                         attach['video'].update({'by_direct':False})
-                        url='https://vk.com/im?z=video'+owner_id+'_'+video_id
+
+                    else:
+                        if 'mp4_720' in attach['video']['files']: quality='mp4_720'
+                        elif 'mp4_480' in attach['video']['files']: quality='mp4_480'
+                        elif 'mp4_240' in attach['video']['files']: quality='mp4_240'
+                        elif 'mp4_144' in attach['video']['files']: quality='mp4_144'
+                        if re.match(r'.*\.mp4.*',attach['video']['files'][quality]): 
+                            url=attach['video']['files'][quality]
+                            attach['video'].update({'by_direct':True})
+                        else: 
+                            owner_id=str(attach['video']['owner_id'])
+                            video_id=str(attach['video']['id'])
+                            attach['video'].update({'by_direct':False})
+                            url='https://vk.com/im?z=video'+owner_id+'_'+video_id
+
                     video=Dictionary(attach['video'].copy()).clear().update(
                         {
                             'type':'video',
@@ -102,6 +107,10 @@ def clean_messages(raw_messages:list[dict], handled_messages:list=[],level=0)->l
                         }
                     ).getdict()
                     attachments.append(audio_message)
+
+                case _:
+                    attachments.append({'type':'undefined'})
+
                 
         item.update({'attachments':attachments})   
              

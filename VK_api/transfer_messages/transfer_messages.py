@@ -44,3 +44,6 @@ async def transfer_messages(handled_messages:list[dict]):
                 case "wall":
                     await bot.send_chat_action(NEWS_CHAT,types.ChatActions.TYPING)
                     await bot.send_message(NEWS_CHAT, text=decorator*message['level']+'<a href="'+attachment['url']+'">Запись на стене</a> от '+message['sender'], parse_mode='HTML')
+                case 'undefined':
+                    await bot.send_chat_action(NEWS_CHAT,types.ChatActions.TYPING)
+                    await bot.send_message(NEWS_CHAT, text=decorator*message['level']+'Вложение не распознано', parse_mode='HTML')
