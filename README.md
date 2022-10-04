@@ -1,4 +1,4 @@
-# FIT manager v 1.1
+# FIT manager v 1.0
 
 ## About
 
@@ -9,7 +9,9 @@ FIT Manager is a telegram bot developed by the first group of the third year IT 
 ### Installation guide [RUS](https://github.com/EugeneAlWin/fit-telegram-bot/wiki/Installation-RUS)/[ENG](https://github.com/EugeneAlWin/fit-telegram-bot/wiki/Installation-ENG)
 
 ---
+
 ## Screenshots
+
 ![image](https://user-images.githubusercontent.com/58369337/193809948-1fd3f3af-e47e-4781-8449-8e2b4e9e61cc.png)
 
 ## Dev-team

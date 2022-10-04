@@ -17,17 +17,17 @@ async def handle_button(message: types.Message):
          return await get_timetable(message)
       elif stripped == "*Список группы":
          return await get_full_group(message)
-      elif stripped == "*Список первой подгруппы":
+      elif stripped == "*Список первой пг":
          return await get_sub_1(message)
-      elif stripped == "*Список второй подгруппы":
+      elif stripped == "*Список второй пг":
          return await get_sub_2(message)
-      elif stripped == "*Очередь первой подгруппы":
+      elif stripped == "*Очередь первой пг":
          return await get_q_1(message)
-      elif stripped == "*Очередь второй подгруппы":
+      elif stripped == "*Очередь второй пг":
          return await get_q_2(message)
-      elif stripped == "*Время работы деканата":
+      elif stripped == "*Время деканата":
          return await shiman_worktime(message)
-      elif stripped == "*Список супер-пользователей":
+      elif stripped == "*Супер-пользователи":
          return await get_access(message)
-      elif stripped == "*Список напоминаний":
+      elif stripped == "*Напоминания":
          return await get_reminder(message)
