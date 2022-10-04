@@ -2,13 +2,15 @@
 
 ## About
 
-FIT Manager is a telegram bot developed by the first group of the third year IT students at BSTU in 2022, main goal is simplifying interaction with the information flow of the VK and the Telegram. It is implemented by forwarding messages from VK chat to selected telegram chat or channel, which will now store news from both sources. There are a number of additional features, which can see in the [Wiki](https://github.com/EugeneAlWin/fit-telegram-bot/wiki) in the installation guide.
+FIT Manager is a telegram bot developed by the first group of the third year IT students at BSTU in 2022, main goal is simplifying interaction with the information flow of the VK and the Telegram. It is implemented by forwarding messages from VK chat to selected telegram chat or channel, which will now store news from both sources. There are a number of additional features, which can you see in the [Wiki](https://github.com/EugeneAlWin/fit-telegram-bot/wiki) in the installation guide.
 
 ---
 
 ### Installation guide [RUS](https://github.com/EugeneAlWin/fit-telegram-bot/wiki/Installation-RUS)/[ENG](https://github.com/EugeneAlWin/fit-telegram-bot/wiki/Installation-ENG)
 
 ---
+## Screenshots
+![image](https://user-images.githubusercontent.com/58369337/193809948-1fd3f3af-e47e-4781-8449-8e2b4e9e61cc.png)
 
 ## Dev-team
 
