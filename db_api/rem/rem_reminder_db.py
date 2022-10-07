@@ -7,7 +7,8 @@ def rem_reminder_db(text_in_reminder:str='', date_in_reminder:str='', is_by_clea
     """
     if is_by_cleaner:
         try:
-            db_cursor.execute(f"DELETE FROM reminder WHERE date < to_date('{date_in_reminder}', 'DD.MM.YYYY')")
+            db_cursor.execute(f"DELETE FROM reminder WHERE date < to_date('{date_in_reminder}', 'DD-MM-YYYY')")
+            db.commit()
             return True
         except Exception as ex:
             db.rollback()

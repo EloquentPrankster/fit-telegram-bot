@@ -11,7 +11,7 @@ from aiogram.dispatcher import FSMContext
 @disp.message_handler(Command('setmind'), state=None)
 async def set_mind(message: types.Message):
     if not has_access(message.from_user.username): return await message.answer("У вас нет прав на эту команду")
-    await message.answer('Введите напоминание по шаблону \n"DD.MM.YYYY Текст (не болee 400 символов)"')
+    await message.answer('Введите напоминание по шаблону \n"DD-MM-YYYY текст (не болee 400 символов)"')
     await Reminder.Q1.set()
 
 

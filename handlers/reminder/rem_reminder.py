@@ -13,6 +13,7 @@ from aiogram.dispatcher import FSMContext
 async def start_remove_reminder(message: types.Message):
     if not has_access(message.from_user.username): return await message.answer("У вас нет прав на эту команду")
     reminders= get_reminders_db()
+    if len(reminders)==0: return await message.answer('Список напоминаний пуст!')
     await message.answer(show_reminders(reminders))
     await message.answer('Введите номер напоминания, которое надо удалить:')
     await Reminder.Z1.set()
