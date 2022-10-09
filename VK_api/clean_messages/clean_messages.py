@@ -30,7 +30,7 @@ def clean_messages(raw_messages:list[dict], handled_messages:list=[],level=0)->l
                     photo=Dictionary(attach['photo'].copy()).clear().update(
                         {
                             'type':'photo',
-                            'url':attach['photo']['sizes'][-2]['url'],
+                            'url':attach['photo']['sizes'][-1]['url'],
                         }
                     ).getdict()
                     attachments.append(photo)
