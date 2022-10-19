@@ -27,10 +27,25 @@ def clean_messages(raw_messages:list[dict], handled_messages:list=[],level=0)->l
         for attach in item['attachments']:
             match(attach['type']):
                 case "photo":
+                    link = ""
+                    for i in attach["photo"]["sizes"]:
+                        if "w" in i["type"]:
+                            link = i["url"]
+                            break
+                        elif "z" in i["type"]:
+                            link = i["url"]
+                        elif "y" in i["type"]:
+                            link = i["url"]
+                        elif "x" in i["type"]:
+                            link = i["url"]
+                        elif "m" in i["type"]:
+                            link = i["url"]
+                        elif "s" in i["type"]:
+                            link = i["url"]
                     photo=Dictionary(attach['photo'].copy()).clear().update(
                         {
                             'type':'photo',
-                            'url':attach['photo']['sizes'][-1]['url'],
+                            'url':link,
                         }
                     ).getdict()
                     attachments.append(photo)
