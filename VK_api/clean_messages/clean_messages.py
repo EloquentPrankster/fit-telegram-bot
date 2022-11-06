@@ -64,7 +64,6 @@ def clean_messages(raw_messages:list[dict], handled_messages:list=[],level=0)->l
                     doc=Dictionary(attach['doc'].copy()).clear().update(
                             {
                                 'type':'doc',
-                                'title':attach['doc']['title'],
                                 'url':attach['doc']['url'],
                             }
                         ).getdict()
@@ -135,7 +134,6 @@ def clean_messages(raw_messages:list[dict], handled_messages:list=[],level=0)->l
                         {
                             'type':'link',
                             'url':attach['link']['url'],
-                            'title':attach['link']['title'],
                         }
                     ).getdict()
                     attachments.append(link)
