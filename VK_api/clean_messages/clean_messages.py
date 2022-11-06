@@ -63,6 +63,7 @@ def clean_messages(raw_messages:list[dict], handled_messages:list=[],level=0)->l
                 case "doc":
                     doc=Dictionary(attach['doc'].copy()).clear().update(
                             {
+                                'title':attach['doc']['title'],
                                 'type':'doc',
                                 'url':attach['doc']['url'],
                             }
