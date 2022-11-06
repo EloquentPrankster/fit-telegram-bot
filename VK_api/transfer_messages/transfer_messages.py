@@ -30,7 +30,7 @@ async def transfer_messages(handled_messages:list[dict]):
                     else : await bot.send_message(NEWS_CHAT,text=decorator*message['level']+'<a href="'+attachment['url']+'">Видео</a> от: '+'<strong>' + message['sender'] + '</strong>'+'\n',parse_mode='HTML')
 
                 case "audio":
-                    await bot.send_chat_action(NEWS_CHAT, types.ChatActions.UPLO)
+                    await bot.send_chat_action(NEWS_CHAT, types.ChatActions.UPLOAD_AUDIO)
                     r=http.request('GET',attachment['url']).data
                     await bot.send_audio(NEWS_CHAT,r,performer=attachment['artist'],title=attachment['title'], duration=attachment['duration'],caption=decorator*message['level']+'Аудио от: '+ '<strong>' + message['sender'] + '</strong>', parse_mode='HTML')
 
@@ -39,6 +39,7 @@ async def transfer_messages(handled_messages:list[dict]):
                     await bot.send_voice(NEWS_CHAT, attachment['link_ogg'],caption=decorator*message['level']+'Голосовое сообщение от: '+ '<strong>' + message['sender'] + '</strong>', parse_mode='HTML')  
 
                 case 'link':
+                    await bot.send_chat_action(NEWS_CHAT,types.ChatActions.TYPING)
                     if attachment['url'] in message['text']: pass
                     else:
                         await bot.send_message(NEWS_CHAT, text=decorator*message['level']+'<a href="'+attachment['url']+'">Ссылка</a> от '+'<strong>' + message['sender'] + '</strong>', parse_mode='HTML')
