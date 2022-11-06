@@ -1,4 +1,4 @@
-# FIT manager v 1.3
+# FIT manager v 1.4
 
 ## About
 
