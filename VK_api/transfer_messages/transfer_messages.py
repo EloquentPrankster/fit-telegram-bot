@@ -38,6 +38,9 @@ async def transfer_messages(handled_messages:list[dict]):
                     await bot.send_chat_action(NEWS_CHAT, types.ChatActions.UPLOAD_VOICE)
                     await bot.send_voice(NEWS_CHAT, attachment['link_ogg'],caption=decorator*message['level']+'Голосовое сообщение от: '+ '<strong>' + message['sender'] + '</strong>', parse_mode='HTML')  
 
+                case 'link':
+                    await bot.send_message(NEWS_CHAT, text=decorator*message['level']+'<a href="'+attachment['url']+'">'+attachment['title']+'</a> от '+'<strong>' + message['sender'] + '</strong>', parse_mode='HTML')
+
                 case "poll":
                     await bot.send_chat_action(NEWS_CHAT,types.ChatActions.TYPING) 
                     await bot.send_message(NEWS_CHAT, text=decorator*message['level']+'<a href="'+attachment['url']+'">Голосование</a> от '+'<strong>' + message['sender'] + '</strong>', parse_mode='HTML')

@@ -7,6 +7,7 @@ def clean_messages(raw_messages:list[dict], handled_messages:list=[],level=0)->l
     prepared_messages = [i.pop(vk_trash).getdict() for i in messages_to_handle]
     
     for item in prepared_messages:
+        print(item)
         item.update({'level':level})
         user = vk.method('users.get',{'user_ids': item['from_id']})
         sender = user[-1]['first_name'] + ' ' + user[-1]['last_name']
@@ -128,6 +129,16 @@ def clean_messages(raw_messages:list[dict], handled_messages:list=[],level=0)->l
                         }
                     ).getdict()
                     attachments.append(audio_message)
+
+                case "link":
+                    link=Dictionary(attach['link'].copy()).clear().update(
+                        {
+                            'type':'link',
+                            'url':attach['link']['url'],
+                            'title':attach['link']['title'],
+                        }
+                    ).getdict()
+                    attachments.append(link)
 
                 case _:
                     attachments.append({'type':'undefined'})
