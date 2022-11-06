@@ -7,7 +7,6 @@ def clean_messages(raw_messages:list[dict], handled_messages:list=[],level=0)->l
     prepared_messages = [i.pop(vk_trash).getdict() for i in messages_to_handle]
     
     for item in prepared_messages:
-        print(item)
         item.update({'level':level})
         user = vk.method('users.get',{'user_ids': item['from_id']})
         sender = user[-1]['first_name'] + ' ' + user[-1]['last_name']

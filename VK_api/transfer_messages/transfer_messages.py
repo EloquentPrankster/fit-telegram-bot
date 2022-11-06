@@ -12,11 +12,19 @@ async def transfer_messages(handled_messages:list[dict]):
             if 'reply_to' in message: text+= '<i>^ Ответ на сообщение от '+'<strong>'+message['reply_to']+'</strong>'+'\n"'+message['reply_text']+'"</i>\n'
             await bot.send_message(NEWS_CHAT, text=text, parse_mode='HTML')
 
+        photo_count=0
+        for i in message['attachments']:
+            if 'photo' in i['type']: photo_count+=1
+        if photo_count>1: photo_group = types.MediaGroup()   
+
         for attachment in message['attachments']:
             match(attachment['type']):
                 case 'photo':
+                    if photo_count > 1: 
+                        photo_group.attach_photo(attachment['url'],caption=decorator*message['level']+'Фото от: '+'<strong>' + message['sender'] + '</strong>', parse_mode='HTML')
+                        continue
+
                     await bot.send_chat_action(NEWS_CHAT, types.ChatActions.UPLOAD_PHOTO)
-                    r=http.request('GET',attachment['url']).data
                     await bot.send_document(NEWS_CHAT, attachment['url'], caption=decorator*message['level']+'Фото от: '+'<strong>' + message['sender'] + '</strong>', parse_mode='HTML')
 
                 case 'doc':
@@ -55,3 +63,7 @@ async def transfer_messages(handled_messages:list[dict]):
                 case 'undefined':
                     await bot.send_chat_action(NEWS_CHAT,types.ChatActions.TYPING)
                     await bot.send_message(NEWS_CHAT, text='<strong>'+decorator*message['level']+message['sender']+'</strong>'+'\n'+'Вложение не распознано. Вероятно стикер, карта или другой шлак.', parse_mode='HTML')
+        
+        if photo_count>1: 
+            await bot.send_chat_action(NEWS_CHAT, types.ChatActions.UPLOAD_PHOTO)
+            await bot.send_media_group(NEWS_CHAT,photo_group)
