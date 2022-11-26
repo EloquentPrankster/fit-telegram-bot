@@ -41,6 +41,3 @@ def init_handlers():
 
     # secret command
     import handlers.secret_command.secret_command
-
-    # buttons
-    import handlers.buttons.handle_button
