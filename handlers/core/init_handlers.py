@@ -41,3 +41,6 @@ def init_handlers():
 
     # secret command
     import handlers.secret_command.secret_command
+
+    # exclusion
+    import handlers.exclusion.exclude

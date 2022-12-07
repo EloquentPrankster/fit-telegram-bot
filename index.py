@@ -5,6 +5,8 @@ from aiogram import executor
 from db_api.core.db import *
 from sheduler.core.core import sheduler
 from aiogram import types
+
+
 async def on_startup(_):
     await disp.bot.set_my_commands(
         [
@@ -28,9 +30,12 @@ async def on_startup(_):
             types.BotCommand("setshiman", "Переписать расписание деканата"),
             types.BotCommand("gett", "Расписание занятий"),
             types.BotCommand("sett", "Установить ссылку на расписание"),
+            types.BotCommand("maxim", "Привет, Максим!"),
+            types.BotCommand("exclude", "Викторина"),
         ]
     )
     asyncio.create_task(sheduler())
+
 
 async def on_shutdown(_):
     db_cursor.close()
@@ -40,8 +45,8 @@ async def on_shutdown(_):
 if __name__ == '__main__':
     init_handlers()
     executor.start_polling(
-        disp, 
-        skip_updates=True, 
-        on_startup=on_startup, 
+        disp,
+        skip_updates=True,
+        on_startup=on_startup,
         on_shutdown=on_shutdown
-        )
+    )
