@@ -1,6 +1,7 @@
 from db_api.core.db import db_cursor, db
 
-def set_reminder_db(date:str, text:str)->bool:
+
+def set_reminder_db(date: str, text: str) -> bool:
     """
     Returns True if data has been added and False if not
     """

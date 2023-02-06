@@ -8,6 +8,8 @@ from handlers.reminder.helpers.check_reminder_regex import check_reminder_regex
 from handlers.reminder.states.Reminder import Reminder
 from handlers.rights.helpers.check_acc import has_access
 from aiogram.dispatcher import FSMContext
+
+
 @disp.message_handler(Command('setmind'), state=None)
 async def set_mind(message: types.Message):
     if not has_access(message.from_user.username): return await message.answer("У вас нет прав на эту команду")
@@ -15,17 +17,16 @@ async def set_mind(message: types.Message):
     await Reminder.Q1.set()
 
 
-
 @disp.message_handler(state=Reminder.Q1)
 async def stop_set_mind(message: types.Message, state: FSMContext):
-    message_text =message.text
+    message_text = message.text
     if check_reminder_regex(message_text) is None: return await message.answer('Строка должна соответствовать шаблону')
-    arr=message_text.split(' ', maxsplit=1)
-    date, text=arr[0],arr[1]
+    arr = message_text.split(' ', maxsplit=1)
+    date, text = arr[0], arr[1]
     try:
         check_date(date)
     except InvalidDate as InvDate:
         return await message.answer(InvDate.text)
     await message.answer('Добавление данных...')
-    await message.answer('Данные добавлены' if set_reminder_db(date,text) else 'Ошибка добавления, отмена команды')
+    await message.answer('Данные добавлены' if set_reminder_db(date, text) else 'Ошибка добавления, отмена команды')
     await state.finish()

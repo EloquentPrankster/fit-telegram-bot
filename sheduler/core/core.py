@@ -2,6 +2,7 @@ import asyncio
 import aioschedule as shed
 from sheduler.task_definition import task_definition
 
+
 async def sheduler():
     task_definition()
     while True:

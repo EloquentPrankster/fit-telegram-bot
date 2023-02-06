@@ -1,12 +1,13 @@
 class Dictionary:
-    def __init__(self,dictionary:dict):
+    def __init__(self, dictionary: dict):
         """Modification of the base class dict."""
-        self.dictionary:dict=dictionary
-    def pop(self,params:list[str]):
+        self.dictionary: dict = dictionary
+
+    def pop(self, params: list[str]):
         for i in params:
             try:
                 self.dictionary.pop(i)
-            except:
+            except Exception:
                 continue
         return self
 
@@ -14,8 +15,9 @@ class Dictionary:
         self.dictionary.clear()
         return self
 
-    def update(self,updict:dict):
+    def update(self, updict: dict):
         self.dictionary.update(updict)
         return self
+
     def getdict(self):
         return self.dictionary

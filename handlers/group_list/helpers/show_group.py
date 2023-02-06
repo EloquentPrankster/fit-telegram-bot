@@ -1,12 +1,12 @@
 from config import GROUP
 
 
-def show_group(list: list[tuple]):
-    splitlist = f'Список студентов {GROUP}:\n'
-    splitlist += '№-ФИО-Подгруппа\n'
+def show_group(group_list: list[tuple]):
+    split_list = f'Список студентов {GROUP}:\n'
+    split_list += '№-ФИО-Подгруппа\n'
     num = 1
-    for student in list:
+    for student in group_list:
         s = student[1].split(' ')
-        splitlist += f'{num}-{s[0]}\n{s[1]} {s[2]}-{student[2]}\n'
+        split_list += f'{num}-{s[0]}\n{s[1]} {s[2]}-{student[2]}\n'
         num += 1
-    return splitlist
+    return split_list

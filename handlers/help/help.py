@@ -4,7 +4,7 @@ from config import DEFAULT_ADMIN
 
 
 @disp.message_handler(commands=['help'])
-async def help(message: types.Message):
+async def helper(message: types.Message):
     text = ("Вот что умеет этот бот:\n"
             + "-----Для всех-----\n"
             + "/start - приветствие\n"

@@ -1,6 +1,6 @@
 def show_queue(list: list[tuple], subgroup: int) -> str:
-    splitlist = f'Очередь подгруппы №{subgroup}:\n'
-    splitlist += 'ФИО-Позиция\n'
+    split_list = f'Очередь подгруппы №{subgroup}:\n'
+    split_list += 'ФИО-Позиция\n'
     for s in list:
-        splitlist += f'{s[0]}-{s[2]}\n'
-    return splitlist
+        split_list += f'{s[0]}-{s[2]}\n'
+    return split_list

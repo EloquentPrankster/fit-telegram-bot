@@ -15,10 +15,10 @@ async def start_set(message: types.Message, state: FSMContext):
     if not has_access(message.from_user.username): return await message.answer("У вас нет прав на эту команду")
     old_list = await get_group_db()
     await state.update_data(Oldlist=old_list)
-    splitlist = ''
+    split_list = ''
     for i in old_list:
-        splitlist += f'{i[1]}-{i[2]}\n'
-    await message.answer(splitlist)
+        split_list += f'{i[1]}-{i[2]}\n'
+    await message.answer(split_list)
     await message.answer("Это текущий список.\nСкопируйте, поправьте и отправьте новое. Проверьте правильность.\n Разделитель '-' обязателен!")
     await OverwritingList.Q1.set()
 
@@ -26,27 +26,27 @@ async def start_set(message: types.Message, state: FSMContext):
 @disp.message_handler(state=OverwritingList.Q1)
 async def stop_set(message: types.Message, state: FSMContext):
     new_list = message.text.split('\n')
-    splist = []
+    split_list = []
     for i in new_list:
         x = re.match(r'.* .* .*-[1|2]$', i)
         if x is None:
             return await message.answer('Каждая строка должна соответствовать шаблону "Ф И О-1|2".\n Скопируйте и вставьте список снова.')
         i = i.split('-')
-        splist.append(i[0])
-        splist.append(i[1])
+        split_list.append(i[0])
+        split_list.append(i[1])
     await message.answer('Идет обновление...')
     i = 0
     try:
         db_cursor.execute('TRUNCATE students')
-    except (Exception):
+    except Exception:
         db.rollback()
         await message.answer('Ошибка обновления таблицы. Проверьте корректность данных. Ну или админ падарас')
         return
     id = 1
-    while i < len(splist):
+    while i < len(split_list):
         try:
             db_cursor.execute(
-                f"Insert into students (id,fio, subgroup) values (%s,%s,%s)", (id, splist[i], splist[i+1]))
+                f"Insert into students (id,fio, subgroup) values (%s,%s,%s)", (id, split_list[i], split_list[i+1]))
             id += 1
         except (Exception):
             db.rollback()

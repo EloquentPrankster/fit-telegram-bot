@@ -1,6 +1,7 @@
 from db_api.core.db import db_cursor, db
 
-def set_access_db(name:str):
+
+def set_access_db(name: str):
     """Returns string with success or fault"""
     try:
         db_cursor.execute(f"insert into admins values ('{name}')")
