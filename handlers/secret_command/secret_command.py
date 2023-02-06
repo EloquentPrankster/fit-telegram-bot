@@ -19,6 +19,5 @@ async def shiman_worktime(message: types.Message):
         "затащил",
         "построит бассейн"
     ]
-    range_of_num = list(range(1, len(list_of_max) + 1))
-    random.shuffle(range_of_num)
-    await message.answer("Максим Матарас "+list_of_max[0])
+    random.shuffle(list_of_max)
+    await message.answer("Максим Матарас " + list_of_max[0])
