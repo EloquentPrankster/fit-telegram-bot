@@ -18,8 +18,7 @@ def init_handlers():
 
     # queue
     import handlers.queue.set_queue
-    import handlers.queue.get_queue_1
-    import handlers.queue.get_queue_2
+    import handlers.queue.get_queues
 
     # rights
     import handlers.rights.get_access
