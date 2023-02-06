@@ -11,8 +11,7 @@ def init_handlers():
 
     # get group
     import handlers.group_list.get_full_group
-    import handlers.group_list.get_sub_1
-    import handlers.group_list.get_sub_2
+    import handlers.group_list.get_subs
 
     # set group
     import handlers.group_list.set_full_group
