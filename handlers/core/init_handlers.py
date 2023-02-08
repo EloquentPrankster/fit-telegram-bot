@@ -6,8 +6,8 @@ def init_handlers():
     import handlers.cancel.cancel
 
     # shiman worktime
-    import handlers.shiman_worktime.get_worktime
-    import handlers.shiman_worktime.set_worktime
+    # import handlers.shiman_worktime.get_worktime
+    # import handlers.shiman_worktime.set_worktime
 
     # get group
     import handlers.group_list.get_full_group
@@ -17,8 +17,8 @@ def init_handlers():
     import handlers.group_list.set_full_group
 
     # queue
-    import handlers.queue.set_queue
-    import handlers.queue.get_queues
+    # import handlers.queue.set_queue
+    # import handlers.queue.get_queues
 
     # rights
     import handlers.rights.get_access
@@ -31,8 +31,8 @@ def init_handlers():
     import handlers.reminder.rem_reminder
 
     # timetable
-    import handlers.timetable.get_timetable
-    import handlers.timetable.set_timetable
+    # import handlers.timetable.get_timetable
+    # import handlers.timetable.set_timetable
 
     # help
     import handlers.help.help
