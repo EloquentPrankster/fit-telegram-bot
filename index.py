@@ -3,7 +3,7 @@ from handlers.core.init_handlers import init_handlers
 from bot import disp
 from aiogram import executor
 from db_api.core.db import *
-from sheduler.core.core import sheduler
+from sсheduler.core.core import scheduler
 from aiogram import types
 
 
@@ -16,13 +16,17 @@ async def on_startup(_):
             types.BotCommand("getgroup", "Список группы"),
             types.BotCommand("getsub1", "Список подгруппы 1"),
             types.BotCommand("getsub2", "Список подгруппы 2"),
-            types.BotCommand("setgroup", "Записать список группы"),
+            types.BotCommand(
+                "setgroup", "Записать список группы"),
             types.BotCommand("getq1", "Очередь 1пг"),
             types.BotCommand("getq2", "Очередь 2пг"),
-            types.BotCommand("setq", "Сгенерировать очередь"),
+            types.BotCommand(
+                "setq", "Сгенерировать очередь"),
             types.BotCommand("getmind", "Список напоминаний"),
-            types.BotCommand("setmind", "Установить напоминание"),
-            types.BotCommand("remmind", "Удалить напоминание"),
+            types.BotCommand(
+                "setmind", "Установить напоминание"),
+            types.BotCommand(
+                "remmind", "Удалить напоминание"),
             types.BotCommand("getacc", "Список админов"),
             types.BotCommand("setacc", "Дать админку"),
             types.BotCommand("remacc", "Забрать админку"),
@@ -34,7 +38,7 @@ async def on_startup(_):
             types.BotCommand("exclude", "Викторина"),
         ]
     )
-    asyncio.create_task(sheduler())
+    asyncio.create_task(scheduler())
 
 
 async def on_shutdown(_):
