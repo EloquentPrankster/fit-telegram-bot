@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    restart: no
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 1
+      POSTGRES_DB: isat_olds
+    ports:
+      - '5432:5432'
+    volumes:
+      - db_data:/var/lib/postgresql/db_data
+volumes:
+  db_data:
