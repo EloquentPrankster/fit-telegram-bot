@@ -1,11 +1,17 @@
-import os
+from os import getenv
 from dotenv import load_dotenv
+# env constants
 load_dotenv('./env/.env')
-API_TOKEN = os.getenv('API_TOKEN')
-DB_URI = os.getenv('DB_URI')
-CHAT_TO_NOTIFY = os.getenv('CHAT_TO_NOTIFY')
-NEWS_CHAT = os.getenv('NEWS_CHAT')
-DEFAULT_ADMIN = os.getenv('DEFAULT_ADMIN')
-GROUP = os.getenv('GROUP')
-VK_TOKEN = os.getenv('VK_TOKEN')
-VK_PEER_ID = os.getenv('VK_PEER_ID')
+# telegram
+BOT_TOKEN = getenv("BOT_TOKEN")
+CHAT_ID = getenv("CHAT_ID")
+NEWS_CHAT_ID = getenv("NEWS_CHAT_ID")
+# database
+DATABASE_NAME = getenv("DATABASE_NAME")
+DATABASE_USER = getenv('DATABASE_USER')
+PASSWORD = getenv("PASSWORD")
+HOST = getenv("HOST")
+PORT = getenv("PORT")
+# vk
+VK_TOKEN = getenv("VK_TOKEN")
+VK_PEER_ID = getenv("VK_PEER_ID")

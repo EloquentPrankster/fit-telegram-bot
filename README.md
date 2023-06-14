@@ -1,4 +1,4 @@
-# FIT manager v 1.6
+# FIT manager v 2.0.0
 
 ## About
 
@@ -18,7 +18,7 @@ FIT Manager is a telegram bot developed by the first group of the third year IT 
 
 - Author: [EugeneAlWin](https://github.com/EugeneAlWin)
 - Programmers: [EugeneAlWin](https://github.com/EugeneAlWin), [sadnessITS](https://github.com/sadnessITS)
-- Testers (Toasters ahahah): [EugeneAlWin](https://github.com/EugeneAlWin), [sadnessITS](https://github.com/sadnessITS), [ShadowWolf91](https://github.com/ShadowWolf91), [VasilisaKashperko](https://github.com/VasilisaKashperko), [brusni4ka-krutishka](https://github.com/brusni4ka-krutishka)
+- Testers (Toasters ahahah): [EugeneAlWin](https://github.com/EugeneAlWin), [sadnessITS](https://github.com/sadnessITS), [ShadowWolf91](https://github.com/ShadowWolf91), [VasilisaKashperko](https://github.com/VasilisaKashperko), [brusni4ka-krutishka](https://github.com/brusni4ka-krutishka), [maybelisa](https://github.com/MightyThor-bruh)
 
 ---
 
