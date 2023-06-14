@@ -1,9 +1,11 @@
 from peewee import *
 from config import HOST, PASSWORD, PORT, DATABASE_NAME, DATABASE_USER
 
+ssl_params = {
+    'sslmode': 'require',
+}
 db = PostgresqlDatabase(DATABASE_NAME, user=DATABASE_USER,
-                        password=PASSWORD, host=HOST, port=PORT, sslmode='require')
-
+                        password=PASSWORD, host=HOST, port=PORT, **ssl_params)
 
 class BaseModel(Model):
     class Meta:
