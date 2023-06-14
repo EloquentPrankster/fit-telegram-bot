@@ -1,8 +1,8 @@
 from peewee import *
-from config import DATABASE_NAME
+from config import DATABASE_URI
 from playhouse.db_url import connect
 
-db = connect(DATABASE_NAME) 
+db = connect(DATABASE_URI)
 
 class BaseModel(Model):
     class Meta:
