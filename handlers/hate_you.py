@@ -7,7 +7,7 @@ import services
 async def hate_you(message: types.Message):
     students = services.db_manager.get_students()
     rand = random.randint(0, len(students)-1)
-    student_to_hate = f"{students[rand].name} {students[rand].patronymic}"
+    student_to_hate = f"{students[rand].name} {students[rand].surname}"
     list_of_things = [
         "иди нахуй", "лох", "отчисляется",
         "лицо нетрадиционной ориентации", "– ты норм", "покоритель негров",
@@ -15,9 +15,9 @@ async def hate_you(message: types.Message):
         "любит Калтыгина", "не сдаст Смелова",
         "сегодня моет парашу", f"го по пиву с {student_to_hate}",
         f"идет на свидание с {student_to_hate}",
-        "едет на свидание с Кореньковой"
+        "едет на свидание с Кореньковой", "хуже Максима Матараса"
     ]
     rand = random.randint(0, len(students)-1)
-    student_to_hate = f"{students[rand].name} {students[rand].patronymic}"
+    student_to_hate = f"{students[rand].name} {students[rand].surname}"
     await message.answer(f"{student_to_hate} {list_of_things[random.randint(0, len(list_of_things)-1)]}")
     logging.info(f"hate_you completed")
