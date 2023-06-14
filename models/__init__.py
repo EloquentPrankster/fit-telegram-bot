@@ -1,11 +1,8 @@
 from peewee import *
-from config import HOST, PASSWORD, PORT, DATABASE_NAME, DATABASE_USER
+from config import DATABASE_NAME
+from playhouse.db_url import connect
 
-ssl_params = {
-    'sslmode': 'require',
-}
-db = PostgresqlDatabase(DATABASE_NAME, user=DATABASE_USER,
-                        password=PASSWORD, host=HOST, port=PORT, **ssl_params)
+db = connect(DATABASE_NAME) 
 
 class BaseModel(Model):
     class Meta:
