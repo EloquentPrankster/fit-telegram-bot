@@ -2,7 +2,7 @@ from peewee import *
 from config import HOST, PASSWORD, PORT, DATABASE_NAME, DATABASE_USER
 
 db = PostgresqlDatabase(DATABASE_NAME, user=DATABASE_USER,
-                        password=PASSWORD, host=HOST, port=PORT,)
+                        password=PASSWORD, host=HOST, port=PORT, sslmode='require')
 
 
 class BaseModel(Model):
