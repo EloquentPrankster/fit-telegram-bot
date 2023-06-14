@@ -14,7 +14,7 @@ async def set_chat_description(bot, db_manager: PostgresqlDatabase):
         formatted_list = [i.description for i in list_of_descriptions]
         phrase = str(formatted_list[random.randint(0, length-1)])
     time = datetime.now()
-    title = f"Время: {time.date()} {time.hour}:{time.minute}\n{phrase}"
+    title = f"Время: {time.date()} {time.hour}:{f'0{time.minute}' if time.minute<10 else time.minute}\n{phrase}"
 
     try:
         await bot.bot.set_chat_description(CHAT_ID, title)
