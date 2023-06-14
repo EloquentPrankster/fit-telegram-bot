@@ -4,7 +4,7 @@ import services
 
 
 async def all(message: types.Message):
-    usernames = services.db_manager.get_bound_usernames()
+    usernames = [i for i in services.db_manager.get_bound_usernames()]
     if (len(usernames) == 0):
         return await message.answer("Список пуст. На фан-встречу никто не придет :[")
     username = message.from_user.username
