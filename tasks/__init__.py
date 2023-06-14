@@ -12,6 +12,8 @@ class TaskManager:
                 while True:
                     # start at xx:xx:00
                     current_time_seconds = datetime.now().second
+                    logging.info(f"Timedelta module: {(60 - current_time_seconds) % target_time}")
+                    logging.info(f"Timedelta: {60 - current_time_seconds}")
                     await asyncio.sleep(
                         (60 - current_time_seconds) % target_time
                         if current_time_seconds % target_time != 0

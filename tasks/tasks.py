@@ -31,6 +31,6 @@ async def get_messages_from_vk(bot, db_manager: PostgresqlDatabase):
         logging.error(f"Failed to read messages: {ex}")
 
 list_of_tasks = [
-    {"func": set_chat_description, "time": 29, },
+    {"func": set_chat_description, "time": 60, },
     {"func": get_messages_from_vk, "time": 15, }
 ]
