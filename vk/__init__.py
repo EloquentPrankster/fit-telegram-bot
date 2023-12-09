@@ -92,7 +92,7 @@ class VKManager:
                         poll = Dictionary(attach['poll'].copy()).clear().update(
                             {
                                 'type': 'poll',
-                                'url': 'https://self.vk_instancecom/poll' + str(attach['poll']['owner_id']) + '_' + str(
+                                'url': 'https://vk.com/poll' + str(attach['poll']['owner_id']) + '_' + str(
                                     attach['poll']['id']),
                             }
                         ).get_dictionary()
@@ -112,7 +112,7 @@ class VKManager:
                         wall = Dictionary(attach['wall'].copy()).clear().update(
                             {
                                 'type': 'wall',
-                                'url': 'https://self.vk_instancecom/wall' + str(attach['wall']['from_id']) + '_' + str(
+                                'url': 'https://vk.com/wall' + str(attach['wall']['from_id']) + '_' + str(
                                     attach['wall']['id']),
                             }
                         ).get_dictionary()
@@ -139,7 +139,7 @@ class VKManager:
                                 owner_id = str(attach['video']['owner_id'])
                                 video_id = str(attach['video']['id'])
                                 attach['video'].update({'by_direct': False})
-                                url = 'https://self.vk_instancecom/im?z=video' + owner_id + '_' + video_id
+                                url = 'https://vk.com/im?z=video' + owner_id + '_' + video_id
 
                         video = Dictionary(attach['video'].copy()).clear().update(
                             {
