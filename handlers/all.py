@@ -14,3 +14,4 @@ async def all(message: types.Message):
         logging.info("All command completed successfully")
     except Exception as e:
         logging.error("All command error")
+        logging.error(e)
