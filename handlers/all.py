@@ -9,7 +9,7 @@ from app import app
 async def all(message: types.Message):
     try:
         users = []
-        async for m in app.get_chat_members(CHAT_ID):
+        async for m in app.get_chat_members(message.chat.id):
             users.append(m.user.username)
 
         matrix_with_users = [[] for _ in range(0, (len(users)/5).__ceil__())]
