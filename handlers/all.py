@@ -7,7 +7,7 @@ from app import app
 async def all(message: types.Message):
     try:
         administrators = []
-        async for m in app.get_chat_members(CHAT_ID):
+        async for m in app.get_chat_members(message.chat.id):
             administrators.append(m.user.username)
 
         await message.answer("".join(['@'+str(i) + " "for i in administrators]))
