@@ -1,15 +1,16 @@
 import logging
 from aiogram import types
-import services
+from config import CHAT_ID
+from app import app
 
 
 async def all(message: types.Message):
-    usernames = [i.username for i in services.db_manager.get_bound_usernames()]
-    if (len(usernames) == 0):
-        return await message.answer("Список пуст. На фан-встречу никто не придет :[")
-    username = message.from_user.username
-    if username not in usernames:
-        return await message.reply("Используйте /bindme, чтобы получить доступ к команде")
-    res = "".join(f"@{i} " for i in usernames)
-    await message.answer(res)
-    logging.info(f"all completed")
+    try:
+        administrators = []
+        async for m in app.get_chat_members(CHAT_ID):
+            administrators.append(m.user.username)
+
+        await message.answer("".join(['@'+str(i) + " "for i in administrators]))
+        logging.info("All command completed successfully")
+    except Exception as e:
+        logging.error("All command error")

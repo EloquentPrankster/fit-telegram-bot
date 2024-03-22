@@ -6,7 +6,8 @@ from handlers import MESSAGE_HANDLERS
 from services import db_manager
 from tasks import TaskManager
 import vk
-
+from app import app
+from config import BOT_TOKEN
 logging.basicConfig(level=logging.INFO)
 
 
@@ -19,6 +20,8 @@ class FitBot:
             self.bot, VK_TOKEN, VK_PEER_ID, NEWS_CHAT_ID)
 
     async def on_startup(self, _):
+        await app.start()
+
         # set commands
         commands = []
         for handler in MESSAGE_HANDLERS:
@@ -42,5 +45,6 @@ class FitBot:
         logging.info("Bot have been started")
 
     async def on_shutdown(self, _):
+        await app.stop()
         db_manager.disconnect()
         logging.info("Бот успешно умер :/")
