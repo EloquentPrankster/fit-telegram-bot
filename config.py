@@ -11,3 +11,6 @@ DATABASE_URI = getenv("DATABASE_URI")
 # vk
 VK_TOKEN = getenv("VK_TOKEN")
 VK_PEER_ID = getenv("VK_PEER_ID")
+# pyrogram all
+API_ID = getenv("API_ID")
+API_HASH = getenv("API_HASH")
